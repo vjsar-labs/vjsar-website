@@ -1,16 +1,392 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VJSAR Web Site</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <h1>Welcome to VJSAR Site!</h1>
-    <p>This is a minimal static website.</p>
-    <button id="clickMe">Click Me!</button>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VJSAR — Minimal</title>
 
-    <script src="script.js" defer></script>
+  <!-- Poppins (Bold + Medium) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="#">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">VJSAR</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
+          <span class="sr-only">Open menu</span>
+          ☰
+        </button>
+
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+
+          <!-- Dropdown / Mega menu -->
+          <li class="dropdown">
+            <a class="dropdown-trigger" href="#services" aria-haspopup="true">
+              Our Services <span class="chev" aria-hidden="true">▾</span>
+            </a>
+
+            <div class="dropdown-panel" role="menu" aria-label="Our Services">
+              <div class="panel-grid">
+                <a class="panel-item" href="#service-cloud" role="menuitem">
+                  <span class="icon" aria-hidden="true">
+                    <!-- cloud icon -->
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M7 18h10a4 4 0 0 0 0-8 6 6 0 0 0-11.5 2" />
+                      <path d="M7 18a4 4 0 0 1 0-8" />
+                    </svg>
+                  </span>
+                  <div>
+                    <div class="panel-title">Cloud Adoption</div>
+                    <div class="panel-sub">Secure migration & modernization</div>
+                  </div>
+                </a>
+
+                <a class="panel-item" href="#service-ai" role="menuitem">
+                  <span class="icon" aria-hidden="true">
+                    <!-- spark icon -->
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M12 2l1.5 6L20 10l-6.5 2L12 22l-1.5-10L4 10l6.5-2L12 2z"/>
+                    </svg>
+                  </span>
+                  <div>
+                    <div class="panel-title">AI & Automation</div>
+                    <div class="panel-sub">Practical AI for operations</div>
+                  </div>
+                </a>
+
+                <a class="panel-item" href="#service-appmod" role="menuitem">
+                  <span class="icon" aria-hidden="true">
+                    <!-- layers icon -->
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M12 2l9 5-9 5-9-5 9-5z"/>
+                      <path d="M3 12l9 5 9-5"/>
+                      <path d="M3 17l9 5 9-5"/>
+                    </svg>
+                  </span>
+                  <div>
+                    <div class="panel-title">Application Modernisation</div>
+                    <div class="panel-sub">Replatform, refactor, rebuild</div>
+                  </div>
+                </a>
+
+                <a class="panel-item" href="#service-data" role="menuitem">
+                  <span class="icon" aria-hidden="true">
+                    <!-- chart icon -->
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 19V5"/>
+                      <path d="M4 19h16"/>
+                      <path d="M8 16v-5"/>
+                      <path d="M12 16V8"/>
+                      <path d="M16 16v-8"/>
+                    </svg>
+                  </span>
+                  <div>
+                    <div class="panel-title">Data Analytics</div>
+                    <div class="panel-sub">Insights, BI, pipelines</div>
+                  </div>
+                </a>
+
+                <a class="panel-item" href="#service-lowcode" role="menuitem">
+                  <span class="icon" aria-hidden="true">
+                    <!-- puzzle icon -->
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 3h6v4a2 2 0 1 0 0 4v4H9v-4a2 2 0 1 1 0-4V3z"/>
+                      <path d="M3 9h6"/>
+                      <path d="M15 9h6"/>
+                      <path d="M3 15h6"/>
+                      <path d="M15 15h6"/>
+                    </svg>
+                  </span>
+                  <div>
+                    <div class="panel-title">Low Code / No Code</div>
+                    <div class="panel-sub">Build faster with governance</div>
+                  </div>
+                </a>
+
+                <a class="panel-item" href="#service-qa" role="menuitem">
+                  <span class="icon" aria-hidden="true">
+                    <!-- shield icon -->
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M12 2l8 4v6c0 5-3.5 9.5-8 10-4.5-.5-8-5-8-10V6l8-4z"/>
+                      <path d="M9 12l2 2 4-5"/>
+                    </svg>
+                  </span>
+                  <div>
+                    <div class="panel-title">Quality Assurance</div>
+                    <div class="panel-sub">Automation & reliability</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+
+          <li><a href="#products">Products</a></li>
+          <li><a href="#careers">Careers</a></li>
+          <li><a class="btn btn-primary" href="#contact">Contact</a></li>
+
+          <li class="mode-item">
+            <button class="btn btn-ghost" id="modeToggle" type="button" aria-pressed="false">
+              <span class="mode-icon" aria-hidden="true">◐</span>
+              <span class="mode-text">Mode</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">IT Solutions • Cloud • Product Engineering</p>
+          <h1 class="h1">Minimal, modern IT services that scale with you.</h1>
+          <p class="lead">
+            We build cloud-first platforms, data products, and reliable delivery pipelines—focused on security, quality, and measurable outcomes.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#contact">Talk to us</a>
+            <a class="btn btn-outline" href="#services">Explore services</a>
+          </div>
+
+          <div class="hero-metrics" aria-label="Key stats">
+            <div class="metric">
+              <div class="metric-value">Cloud</div>
+              <div class="metric-label">Adoption & migration</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">Data</div>
+              <div class="metric-label">Analytics & engineering</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">QA</div>
+              <div class="metric-label">Automation & testing</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card" aria-hidden="true">
+          <div class="glass">
+            <div class="mini-row">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+            <div class="mini-content">
+              <div class="line w80"></div>
+              <div class="line w60"></div>
+              <div class="line w90"></div>
+              <div class="chips">
+                <span class="chip">#24B6EA</span>
+                <span class="chip">#52D19D</span>
+                <span class="chip">#131F48</span>
+              </div>
+              <div class="card-grid">
+                <div class="card-tile"></div>
+                <div class="card-tile"></div>
+                <div class="card-tile"></div>
+                <div class="card-tile"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <section class="strip">
+      <div class="container strip-inner">
+        <div class="strip-title">Built for delivery teams</div>
+        <div class="strip-items">
+          <span class="pill">Azure</span>
+          <span class="pill">DevOps</span>
+          <span class="pill">Security</span>
+          <span class="pill">Quality</span>
+          <span class="pill">Modern Apps</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container two-col">
+        <div>
+          <h2 class="h2">About us</h2>
+          <p class="text">
+            We’re an IT solutions partner focused on cloud adoption, product development, and quality engineering—built around reliable delivery and clear outcomes.
+          </p>
+          <ul class="checklist">
+            <li>Architecture & delivery you can maintain</li>
+            <li>Security-first mindset</li>
+            <li>Measurable impact, not buzzwords</li>
+          </ul>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature">
+            <div class="feature-title">Approach</div>
+            <div class="feature-text">Discover → Design → Deliver → Optimise</div>
+          </div>
+          <div class="feature">
+            <div class="feature-title">Style</div>
+            <div class="feature-text">Minimal UI • Strong typography • Calm gradients</div>
+          </div>
+          <div class="feature">
+            <div class="feature-title">Modes</div>
+            <div class="feature-text">Light/Dark toggle with saved preference</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="h2">Our services</h2>
+          <p class="muted">A simple set of outcomes—delivered with modern engineering.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card" id="service-cloud">
+            <h3 class="h3">Cloud Adoption</h3>
+            <p>Migration planning, landing zones, security posture, cost controls.</p>
+          </article>
+          <article class="card" id="service-ai">
+            <h3 class="h3">AI & Automation</h3>
+            <p>Workflow automation, decision support, responsible AI integration.</p>
+          </article>
+          <article class="card" id="service-appmod">
+            <h3 class="h3">Application Modernisation</h3>
+            <p>Replatforming, microservices, performance, reliability engineering.</p>
+          </article>
+          <article class="card" id="service-data">
+            <h3 class="h3">Data Analytics</h3>
+            <p>Modern data stack, pipelines, dashboards, governed self-service BI.</p>
+          </article>
+          <article class="card" id="service-lowcode">
+            <h3 class="h3">Low Code / No Code</h3>
+            <p>Fast delivery with guardrails, review processes, and governance.</p>
+          </article>
+          <article class="card" id="service-qa">
+            <h3 class="h3">Quality Assurance</h3>
+            <p>Test strategy, automation, CI quality gates, release confidence.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS (replaces Industries) -->
+    <section class="section" id="products">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="h2">Products</h2>
+          <p class="muted">Replace “Industries” with real offerings your customers can understand quickly.</p>
+        </div>
+
+        <div class="cards products">
+          <article class="card">
+            <h3 class="h3">Policy Portal</h3>
+            <p>Customer onboarding, document vault, claims tracking.</p>
+            <span class="tag">Insurance-ready</span>
+          </article>
+          <article class="card">
+            <h3 class="h3">KPI Dashboard</h3>
+            <p>Executive metrics, alerts, drill-down analytics.</p>
+            <span class="tag">Data product</span>
+          </article>
+          <article class="card">
+            <h3 class="h3">Release Control</h3>
+            <p>Quality gates, environments, deployment visibility.</p>
+            <span class="tag">DevOps</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAREERS -->
+    <section class="section" id="careers">
+      <div class="container two-col">
+        <div>
+          <h2 class="h2">Careers</h2>
+          <p class="text">We value clarity, ownership, and engineering quality. Join a team that ships.</p>
+          <a class="btn btn-outline" href="#contact">Send your CV</a>
+        </div>
+        <div class="feature-box">
+          <div class="feature">
+            <div class="feature-title">Roles</div>
+            <div class="feature-text">Cloud • Data • QA • Full-stack</div>
+          </div>
+          <div class="feature">
+            <div class="feature-title">Culture</div>
+            <div class="feature-text">Small teams, strong standards, real impact</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact">
+          <div>
+            <h2 class="h2">Contact</h2>
+            <p class="muted">Tell us what you’re building. We’ll respond with next steps.</p>
+
+            <div class="contact-details">
+              <div class="kv"><span>Email</span><strong>info@yourdomain.com</strong></div>
+              <div class="kv"><span>Phone</span><strong>+44 20 0000 0000</strong></div>
+              <div class="kv"><span>Location</span><strong>London, UK</strong></div>
+            </div>
+          </div>
+
+          <form class="form" onsubmit="return false;">
+            <label>
+              Name
+              <input type="text" placeholder="Your name" required />
+            </label>
+            <label>
+              Email
+              <input type="email" placeholder="you@example.com" required />
+            </label>
+            <label>
+              Message
+              <textarea rows="5" placeholder="What do you need?" required></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit">Send message</button>
+            <p class="fineprint">This is a front-end demo form (no backend yet).</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>© <span id="year"></span> VJSAR — Minimal</div>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#products">Products</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
